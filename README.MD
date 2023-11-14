@@ -1,3 +1,7 @@
+## O que fazer
+- Aplicar o pattern State, para adicionar funcionalidade de "imunidade" ao jogador;
+
+
 # CURSO DE JOGOS
 
 http://mariojp.com.br

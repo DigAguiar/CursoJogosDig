@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class Nave extends Sprite {
+public class Nave extends Sprite implements ImmunityState{
 	private int dx;
 	private int dy;
 
@@ -27,6 +27,11 @@ public class Nave extends Sprite {
 	public void move() {
 		x += dx;
 		y += dy;
+	}
+
+	@Override
+	public void immunity() {
+		
 	}
 
 
@@ -70,4 +75,6 @@ public class Nave extends Sprite {
 	public ArrayList<Missil> getMissiles() {
 		return missiles;
 	}
+
+	
 }
