@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class Nave extends Sprite implements ImmunityState{
+	private int immunitySlots;
 	private int dx;
 	private int dy;
 
@@ -28,10 +29,19 @@ public class Nave extends Sprite implements ImmunityState{
 		x += dx;
 		y += dy;
 	}
+	
 
+	// Implementação do State
 	@Override
-	public void immunity() {
-		
+	public String immunity() {
+		String msg = "Immunity slots are gone!";
+
+		if (immunitySlots < 5) {
+			msg = "Immunity On!";
+			immunitySlots++;
+		}
+
+		return msg;
 	}
 
 
@@ -53,6 +63,11 @@ public class Nave extends Sprite implements ImmunityState{
 		}if(key==KeyEvent.VK_DOWN){
 			dy= 1;
 		}
+		// Para ativar imunidade
+		if (key == KeyEvent.VK_I) {
+			System.out.println(immunity());
+			
+		}
 	}
 	
 	private void atira() {
@@ -70,6 +85,7 @@ public class Nave extends Sprite implements ImmunityState{
 		}if(key==KeyEvent.VK_DOWN){
 			dy=0;
 		}
+		
 	}
 
 	public ArrayList<Missil> getMissiles() {
