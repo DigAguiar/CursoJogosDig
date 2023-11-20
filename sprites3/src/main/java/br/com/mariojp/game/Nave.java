@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class Nave extends Sprite implements ImmunityState{
+	private boolean immunityCurrentState;
 	private int immunitySlots;
 	private int dx;
 	private int dy;
@@ -36,12 +37,24 @@ public class Nave extends Sprite implements ImmunityState{
 	public String immunity() {
 		String msg = "Immunity slots are gone!";
 
-		if (immunitySlots < 5) {
+		if (immunitySlots < 1) {
 			msg = "Immunity On!";
 			immunitySlots++;
+			immunityCurrentState = true;
+		}else {
+			immunityCurrentState = false;
 		}
 
 		return msg;
+	}
+
+	public boolean getImmunityCurrentState () {
+		return this.immunityCurrentState;
+	}
+
+	public void setImmunityStateEnds (boolean state) {
+		this.immunityCurrentState = state;
+		System.out.println("Immunity is over");
 	}
 
 

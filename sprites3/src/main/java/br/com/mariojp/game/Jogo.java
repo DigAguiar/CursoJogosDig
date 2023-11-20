@@ -118,9 +118,18 @@ public class Jogo extends JPanel implements ActionListener {
 		for (Inimigo alien : inimigos) {
 			Rectangle r2 = alien.getBounds();
 			if (r3.intersects(r2)) {
+				//Metodo booleano
+				if (nave.getImmunityCurrentState()) {
+					nave.setImmunityStateEnds(false);
+					alien.setVisible(false);
+
+				}else {
 				nave.setVisible(false);
 				alien.setVisible(false);
 				endgame = true;
+				}
+
+				
 			}
 		}
 		ArrayList<Missil> ms = nave.getMissiles();
